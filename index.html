@@ -1,20 +1,36 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>My To-Dos</title>
 </head>
+
 <body>
-<div id="myDIV" class="header">
-    <h2>TODO List Header</h2>
-    <input type="text" id="myInput" placeholder="Title...">
-    <span onclick="newElement()" class="addBtn">ADD</span>
-</div>
 
-<ul id="myUL"> 
-    <li>Hit the gym</li>
-    <li class="checked">put car in for service</li>
-</ul>
+    <!-- Header with progress bar -->
+    <div id="myDIV" class="header">
+        <h2>My To-Dos</h2>
+        <input type="text" id="myInput" placeholder="Task...">
+        <span onclick="newElement()" class="addBtn">| ADD |</span>
+    </div>
 
-<script src="script.js"></script>
+    <!-- Progress bar container -->
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <!-- Main content -->
+    <main>
+        <ul id="myUL">
+            <li>Hit the gym</li>
+            <li class="checked">Put car in for service</li>
+        </ul>
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

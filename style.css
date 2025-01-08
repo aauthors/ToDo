@@ -3,10 +3,38 @@
     box-sizing: border-box;
 }
 
-/* remove margins and padding from the list only */
+/* Fixed header */
+.header {
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #7121f2;
+    padding: 20px 40px; /* Adjust padding */
+    color: white;
+    text-align: center;
+    border-radius: 5px; /* Optional: no round corners for fixed header */
+}
+
+/* Push content below the fixed header */
+main {
+    margin-top: calc(var(--header-height, 100px));
+    padding: 20px; /* Add some padding for content */
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: ""; 
+    display: table; 
+    clear: both;
+}
+
+/* Make ul scrollable if necessary */
 ul {
-    margin: 0; 
-    padding: 0;
+    margin: 8px;
+    padding: 8px;
+    max-height: calc(100vh - 120px); /* Adjustable based on header height */
+    overflow-y: auto; /* Make the list scrollable if it overflows */
 }
 
 /* style the list items */
@@ -17,6 +45,9 @@ ul li {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
+
+    border-radius: 10px;
+    margin-bottom: 5px;
 
     /* make the list items scalable */ 
     -webkit-user-select: none;
@@ -68,28 +99,14 @@ ul li.checked::before {
     background-color: #f44336; 
     color: white; 
     cursor: pointer;
-}
-
-/* style header */ 
-.header {
-    background-color: #f44336; 
-    padding: 30px 40px; 
-    color: white; 
-    text-align: center;
-}
-
-/* clear floats after the header */ 
-.header:after {
-    content: ""; 
-    display: table; 
-    clear: both;
+    border-radius: 5px;
 }
 
 /* style the input */ 
 input {
     margin: 0; 
     border: none; 
-    border-radius: 0; 
+    border-radius: 5px; 
     width: 75%; 
     padding: 10px; 
     float: left; 
@@ -100,16 +117,30 @@ input {
 .addBtn {
     padding: 10px;
     width: 25%; 
-    background: #d9d9d9; 
+    background: #bbb; 
     color: #555;
     float: left; 
     text-align: center; 
     font-size: 16px; 
     cursor: pointer; 
     transition: 0.3s; 
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 .addBtn:hover {
-    background-color: #bbb;
+    background-color: #43c3ff;
+}
+
+/* progress container (grey background) */ 
+.progress-container {
+    width: 100%; 
+    height: 8px; 
+    background: #ccc; 
+}
+
+/* the progress bar (scroll indicator) */ 
+.progress-bar {
+    width: 8px; 
+    background: #04AA7D; 
+    width: 0%; 
 }
